@@ -30,7 +30,7 @@ const Card = (props) => {
           <p>About Company:-</p>
           <p>About Us</p>
           <p>{props?.jobDetailsFromCompany}</p>
-          <button className={styles.viewMore}>view more</button>
+          <button className={styles.viewMore}>view job</button>
         </div>
         <div className={styles.experience}>
           <p>Minimum Experience</p>
