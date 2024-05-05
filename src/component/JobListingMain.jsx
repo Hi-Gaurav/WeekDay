@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchJobListings, filterObjectsWithNullValues } from "../utils/utils";
+import Card from "./Card";
 
 const JobListingMain = () => {
   const [jobListings, setJobListings] = useState([]);
@@ -22,7 +23,17 @@ const JobListingMain = () => {
   console.log(jobListings, "8943h0pih43");
   return (
     <>
-      <div>JobListingMain</div>
+      {jobListings?.map((job, index) => {
+        return (
+          <Card
+            jobRole={job?.jobRole}
+            companyName={job?.companyName}
+            minExp={job?.minExp}
+            minJdSalary={job?.minJdSalary}
+            key={index}
+          />
+        );
+      })}
     </>
   );
 };

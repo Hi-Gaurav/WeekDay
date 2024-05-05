@@ -1,0 +1,28 @@
+.border {
+  border: 1px solid #0000001a;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.dayPosted {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  border: 1px solid #0000001a;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.timeIc {
+  height: 13px;
+  width: auto;
+  overflow: hidden;
+}
+
+.basicRoleInfo {
+  margin-top: 15px;
+}

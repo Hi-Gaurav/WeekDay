@@ -11,7 +11,7 @@ export const fetchJobListings = async (url, data = {}) => {
       throw new Error("Failed to fetch job listings");
     }
     const jobs = await response.json();
-    return jobs.jdList;
+    return jobs?.jdList;
   } catch (error) {
     console.error("Error fetching job listings:", error);
     return [];
