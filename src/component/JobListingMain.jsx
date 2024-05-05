@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
-import { fetchJobListings, filterObjectsWithNullValues } from "../utils/utils";
+import {
+  debounce,
+  fetchJobListings,
+  filterObjectsWithNullValues,
+  handleInfiniteScroll,
+} from "../utils/utils";
 import Card from "./Card";
 
 const JobListingMain = () => {
   const [jobListings, setJobListings] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -11,14 +17,27 @@ const JobListingMain = () => {
         "https://api.weekday.technology/adhoc/getSampleJdJSON",
         {
           limit: 10,
-          offset: 0,
+          offset: currentPage,
         }
       );
       const filteredListings = filterObjectsWithNullValues(newJobListings);
-      setJobListings(filteredListings);
+      setJobListings((prevListings) => [...prevListings, ...filteredListings]);
     };
     fetchData();
-  }, []);
+  }, [currentPage]);
+
+  useEffect(() => {
+    const debouncedHandleScroll = debounce(() => {
+      handleInfiniteScroll(currentPage, setCurrentPage);
+    }, 200);
+
+    const handleScroll = () => {
+      debouncedHandleScroll();
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [currentPage, setCurrentPage]);
 
   console.log(jobListings, "8943h0pih43");
   return (

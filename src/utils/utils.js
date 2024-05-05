@@ -28,3 +28,26 @@ export const filterObjectsWithNullValues = (data) => {
     return true;
   });
 };
+
+export const handleInfiniteScroll = async (currentPage, setCurrentPage) => {
+  try {
+    if (
+      window.innerHeight + document.documentElement.scrollTop + 1 >=
+      document.documentElement.scrollHeight
+    ) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const debounce = (func, delay) => {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func(...args);
+    }, delay);
+  };
+};
