@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Filter from "./Filter";
+import styles from "./filter.module.css";
 
 const FilterSection = ({
   filters,
@@ -13,32 +14,38 @@ const FilterSection = ({
 }) => {
   return (
     <>
-      <Filter
-        value={filters.role}
-        onChange={handleRoleChange}
-        options={uniqueRoles}
-      />
-      <Filter
-        value={filters.experience}
-        onChange={handleExperienceChange}
-        options={uniqueExperience}
-      />
-      <div>
-        <label>Minimum Salary:</label>
-        <input
-          type="number"
-          min={minSalary}
-          value={filters.minimumSalary}
-          onChange={handleMinimumSalaryChange}
+      <div className={styles.filterContainer}>
+        <Filter
+          value={filters.role}
+          onChange={handleRoleChange}
+          options={uniqueRoles}
+          placeholder="Role"
         />
-      </div>
-      <div>
-        <label>Company Name:</label>
-        <input
-          type="text"
-          value={filters.companyName}
-          onChange={handleCompanyNameChange}
+        <Filter
+          value={filters.experience}
+          onChange={handleExperienceChange}
+          options={uniqueExperience}
+          placeholder="Experience"
         />
+        <div>
+          <input
+            className={styles.filterBox}
+            type="number"
+            min={minSalary}
+            value={filters.minimumSalary}
+            onChange={handleMinimumSalaryChange}
+            placeholder="Minimum Salary"
+          />
+        </div>
+        <div>
+          <input
+            className={styles.filterBox}
+            type="text"
+            value={filters.companyName}
+            onChange={handleCompanyNameChange}
+            placeholder="Company Name"
+          />
+        </div>
       </div>
     </>
   );

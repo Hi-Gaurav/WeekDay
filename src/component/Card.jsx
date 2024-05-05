@@ -11,15 +11,18 @@ const Card = (props) => {
           Posted 10 days ago
         </div>
         <div className={styles.basicRoleInfo}>
-          <div className={styles.companyLogo}></div>
+          <img src={props?.logoUrl} className={styles.companyLogo}></img>
           <div className={styles.otherDetails}>
             <div className={styles.companyName}>{props?.companyName}</div>
-            <div className={styles.roleName}>{props?.jobRole}</div>
+            <div className={styles.roleName}>
+              {props?.jobRole.toUpperCase()}
+            </div>
             <div className={styles.location}>{props?.location}</div>
           </div>
-          <div className={styles.salaryInfo}>
-            {props?.minJdSalary}-{props?.maxExp} {props?.salaryCurrencyCode}
-          </div>
+        </div>
+        <div className={styles.salaryInfo}>
+          Estimated Salary: {props?.minJdSalary}-{props?.maxExp}{" "}
+          {props?.salaryCurrencyCode} ✅
         </div>
         <div className={styles.aboutCompany}>
           <p>About Company:-</p>
@@ -27,9 +30,12 @@ const Card = (props) => {
           <p>{props?.jobDetailsFromCompany}</p>
           <button className={styles.viewMore}>view more</button>
         </div>
-        <div className={styles.experience}>{props?.minExp} years</div>
+        <div className={styles.experience}>
+          <p>Minimum Experience</p>
+          <p>{props?.minExp} years</p>
+        </div>
         <div className={styles.actionButtons}>
-          <button className={styles.easyApply}>Easy Apply</button>
+          <button className={styles.easyApply}>⚡Easy Apply</button>
           <button className={styles.askReferral}>Ask for referral</button>
         </div>
       </div>
@@ -46,6 +52,7 @@ Card.propTypes = {
   salaryCurrencyCode: PropTypes.string,
   jobDetailsFromCompany: PropTypes.string,
   location: PropTypes.string,
+  logoUrl: PropTypes.string,
 };
 
 export default Card;

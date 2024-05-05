@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styles from "./home.module.css";
 import {
   debounce,
   fetchJobListings,
@@ -28,7 +29,7 @@ const JobListingMain = () => {
       const newJobListings = await fetchJobListings(
         "https://api.weekday.technology/adhoc/getSampleJdJSON",
         {
-          limit: 10,
+          limit: 9,
           offset: currentPage,
         }
       );
@@ -107,22 +108,24 @@ const JobListingMain = () => {
         minSalary={minSalary}
       />
 
-      {filteredJobListings?.map((job, index) => {
-        return (
-          <Card
-            key={index}
-            jobRole={job?.jobRole}
-            companyName={job?.companyName}
-            minExp={job?.minExp}
-            maxExp={job?.maxExp}
-            minJdSalary={job?.minJdSalary}
-            salaryCurrencyCode={job?.salaryCurrencyCode}
-            jobDetailsFromCompany={job?.jobDetailsFromCompany}
-            location={job?.location}
-            logoUrl={job?.logoUrl}
-          />
-        );
-      })}
+      <div className={styles.jobs}>
+        {filteredJobListings?.map((job, index) => {
+          return (
+            <Card
+              key={index}
+              jobRole={job?.jobRole}
+              companyName={job?.companyName}
+              minExp={job?.minExp}
+              maxExp={job?.maxExp}
+              minJdSalary={job?.minJdSalary}
+              salaryCurrencyCode={job?.salaryCurrencyCode}
+              jobDetailsFromCompany={job?.jobDetailsFromCompany}
+              location={job?.location}
+              logoUrl={job?.logoUrl}
+            />
+          );
+        })}
+      </div>
       {loading && <LoadingState />}
     </>
   );
