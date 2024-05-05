@@ -6,10 +6,12 @@ import {
   handleInfiniteScroll,
 } from "../utils/utils";
 import Card from "./Card";
+import LoadingState from "./LoadingState";
 
 const JobListingMain = () => {
   const [jobListings, setJobListings] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +26,7 @@ const JobListingMain = () => {
       setJobListings((prevListings) => [...prevListings, ...filteredListings]);
     };
     fetchData();
+    setLoading(false);
   }, [currentPage]);
 
   useEffect(() => {
@@ -58,6 +61,7 @@ const JobListingMain = () => {
           />
         );
       })}
+      {loading && <LoadingState />}
     </>
   );
 };
