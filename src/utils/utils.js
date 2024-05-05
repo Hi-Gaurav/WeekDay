@@ -1,3 +1,4 @@
+// Fetch job lists
 export const fetchJobListings = async (url, data = {}) => {
   try {
     const response = await fetch(url, {
@@ -18,6 +19,7 @@ export const fetchJobListings = async (url, data = {}) => {
   }
 };
 
+// Filter objects with null value
 export const filterObjectsWithNullValues = (data) => {
   return data.filter((item) => {
     for (let key in item) {
@@ -29,6 +31,7 @@ export const filterObjectsWithNullValues = (data) => {
   });
 };
 
+// infinite scroll
 export const handleInfiniteScroll = async (currentPage, setCurrentPage) => {
   try {
     if (
@@ -42,6 +45,7 @@ export const handleInfiniteScroll = async (currentPage, setCurrentPage) => {
   }
 };
 
+// debouncing
 export const debounce = (func, delay) => {
   let timeoutId;
   return (...args) => {

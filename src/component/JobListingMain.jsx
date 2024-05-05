@@ -24,6 +24,7 @@ const JobListingMain = () => {
   const [uniqueExperience, setUniqueExperience] = useState([]);
   const [minSalary, setMinSalary] = useState(0);
 
+  // Fetch jobs list
   useEffect(() => {
     const fetchData = async () => {
       const newJobListings = await fetchJobListings(
@@ -54,6 +55,7 @@ const JobListingMain = () => {
     fetchData();
   }, [currentPage]);
 
+  // add infinite scroll and debouncing for performance
   useEffect(() => {
     const debouncedHandleScroll = debounce(() => {
       handleInfiniteScroll(currentPage, setCurrentPage);
@@ -67,6 +69,7 @@ const JobListingMain = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [currentPage, setCurrentPage]);
 
+  // Filter Handlers
   const handleRoleChange = (event) => {
     setFilters({ ...filters, role: event.target.value });
   };
@@ -97,6 +100,7 @@ const JobListingMain = () => {
 
   return (
     <>
+      {/* Filter Ui render */}
       <FilterSection
         filters={filters}
         handleRoleChange={handleRoleChange}
@@ -108,6 +112,7 @@ const JobListingMain = () => {
         minSalary={minSalary}
       />
 
+      {/* Jobs card UI render */}
       <div className={styles.jobs}>
         {filteredJobListings?.map((job, index) => {
           return (
