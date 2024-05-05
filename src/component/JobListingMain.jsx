@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchJobListings } from "../utils/utils";
+import { fetchJobListings, filterObjectsWithNullValues } from "../utils/utils";
 
 const JobListingMain = () => {
   const [jobListings, setJobListings] = useState([]);
@@ -13,7 +13,8 @@ const JobListingMain = () => {
           offset: 0,
         }
       );
-      setJobListings(newJobListings);
+      const filteredListings = filterObjectsWithNullValues(newJobListings);
+      setJobListings(filteredListings);
     };
     fetchData();
   }, []);

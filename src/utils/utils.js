@@ -17,3 +17,14 @@ export const fetchJobListings = async (url, data = {}) => {
     return [];
   }
 };
+
+export const filterObjectsWithNullValues = (data) => {
+  return data.filter((item) => {
+    for (let key in item) {
+      if (item[key] === null) {
+        return false;
+      }
+    }
+    return true;
+  });
+};
