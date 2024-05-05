@@ -9,7 +9,7 @@ const Filter = ({ value, onChange, options, placeholder }) => (
       value={value}
       onChange={onChange}
     >
-      <option value="">All</option>
+      <option value="">{placeholder}</option>
       {options.map((item, index) => (
         <option key={index} value={item}>
           {item}

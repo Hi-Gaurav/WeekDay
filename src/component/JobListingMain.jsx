@@ -29,7 +29,7 @@ const JobListingMain = () => {
       const newJobListings = await fetchJobListings(
         "https://api.weekday.technology/adhoc/getSampleJdJSON",
         {
-          limit: 9,
+          limit: 18,
           offset: currentPage,
         }
       );
