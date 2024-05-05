@@ -97,6 +97,7 @@
   align-items: center;
   font-weight: 500;
   text-shadow: 0.1px 0.1px 0.1px purple;
+  cursor: pointer;
 }
 
 .experience p {
@@ -131,6 +132,7 @@
   display: flex;
   text-align: center;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 
 .easyApply {
