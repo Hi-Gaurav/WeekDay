@@ -6,6 +6,7 @@
 }
 
 .dayPosted {
+  font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +19,7 @@
 }
 
 .timeIc {
-  height: 13px;
+  height: 10px;
   width: auto;
   overflow: hidden;
 }
@@ -31,6 +32,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.location {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
 }
 
 .companyLogo {
