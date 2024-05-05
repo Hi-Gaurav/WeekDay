@@ -45,11 +45,16 @@ const JobListingMain = () => {
       {jobListings?.map((job, index) => {
         return (
           <Card
+            key={index}
             jobRole={job?.jobRole}
             companyName={job?.companyName}
             minExp={job?.minExp}
+            maxExp={job?.maxExp}
             minJdSalary={job?.minJdSalary}
-            key={index}
+            salaryCurrencyCode={job?.salaryCurrencyCode}
+            jobDetailsFromCompany={job?.jobDetailsFromCompany}
+            location={job?.location}
+            logoUrl={job?.logoUrl}
           />
         );
       })}

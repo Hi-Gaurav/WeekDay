@@ -15,19 +15,16 @@ const Card = (props) => {
           <div className={styles.otherDetails}>
             <div className={styles.companyName}>{props?.companyName}</div>
             <div className={styles.roleName}>{props?.jobRole}</div>
-            <div className={styles.location}>Bangalore</div>
+            <div className={styles.location}>{props?.location}</div>
           </div>
-          <div className={styles.salaryInfo}>{props?.minJdSalary}-a18 LPA</div>
+          <div className={styles.salaryInfo}>
+            {props?.minJdSalary}-{props?.maxExp} {props?.salaryCurrencyCode}
+          </div>
         </div>
         <div className={styles.aboutCompany}>
           <p>About Company:-</p>
           <p>About Us</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo error
-            aliquid, harum omnis architecto impedit nisi laboriosam quo, dolore
-            in at maiores suscipit, quis tenetur nesciunt deleniti illo enim
-            dignissimos.
-          </p>
+          <p>{props?.jobDetailsFromCompany}</p>
           <button className={styles.viewMore}>view more</button>
         </div>
         <div className={styles.experience}>{props?.minExp} years</div>
@@ -45,6 +42,10 @@ Card.propTypes = {
   jobRole: PropTypes.string,
   minExp: PropTypes.number,
   minJdSalary: PropTypes.number,
+  maxExp: PropTypes.number,
+  salaryCurrencyCode: PropTypes.string,
+  jobDetailsFromCompany: PropTypes.string,
+  location: PropTypes.string,
 };
 
 export default Card;
