@@ -141,4 +141,14 @@
 .askReferral {
   background-color: #4943da;
   color: #fff;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.askReferral img {
+  height: 15px;
+  border-radius: 80px;
+  filter: blur(1px);
+  border: 3px solid #fff;
 }

@@ -1,6 +1,8 @@
 import styles from "./card.module.css";
 import time_ic from "../assets/static/time.svg";
 import PropTypes from "prop-types";
+import avatar1 from "../assets/static/150.jpeg";
+import avatar2 from "../assets/static/150 (1).jpeg";
 
 const Card = (props) => {
   return (
@@ -36,7 +38,13 @@ const Card = (props) => {
         </div>
         <div className={styles.actionButtons}>
           <button className={styles.easyApply}>⚡Easy Apply</button>
-          <button className={styles.askReferral}>Ask for referral</button>
+          <button className={styles.askReferral}>
+            <div className="img">
+              <img src={avatar1} alt="" />
+              <img src={avatar2} alt="" />
+            </div>
+            Ask for referral
+          </button>
         </div>
       </div>
     </>
